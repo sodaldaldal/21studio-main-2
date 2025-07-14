@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 from typing import List
 import uuid
 from datetime import datetime
-
+from fastapi.middleware.cors import CORSMiddleware
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -26,6 +26,14 @@ app = FastAPI(
     redoc_url="/api/redoc",
 )
 
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],                # или конкретный домен фронтенда: ["https://your-site.netlify.app"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
