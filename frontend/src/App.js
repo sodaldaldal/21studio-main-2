@@ -190,24 +190,24 @@ const [currentIndex, setCurrentIndex] = useState(0);
   const halls = {
     cast: {
       name: t.modals.rental.halls.cast,
-      description: 'Профессиональная съемка видео контента',
+      description: 'Профессиональная пространство для reels и подкастов',
       price: { day: '650 000', evening: '750 000', night: '950 000' },
    images: [cast1, cast2, cast3],
-      features: ['Профессиональное освещение', 'Камерное оборудование', 'Звукозапись']
+      features: ['Профессиональное освещение', 'Два микрофона']
     },
     content: {
       name: t.modals.rental.halls.content,
       description: 'Создание контента для социальных сетей',
       price: { day: '800 000', evening: '900 000', night: '1 100 000' },
 images: [content1 ,content2, content3],
-      features: ['Мобильная съемка', 'Инстаграм контент', 'Профессиональный свет']
+      features: ['Панорманые окна', 'Два микрофона']
     },
     cyclo: {
       name: t.modals.rental.halls.cyclo,
-      description: 'Специализированный зал для спорт контента',
+      description: 'Зал циклорама для съемок коммерческих проектов',
       price: { day: '500 000', evening: '600 000', night: '800 000' },
 images: [cyclo1, cyclo2, cyclo3],
-      features: ['Спорт оборудование', 'Динамичная съемка', 'Тренировочное пространство']
+      features: ['Белая циклорама','Съёмка коммерческих проектов']
     }
   };
 
@@ -594,14 +594,14 @@ reels: [
 
     {/* Информация о зале */}
     <div className="hall-detail-info" style={{ marginTop: '16px' }}>
-      <p>{halls[selectedHall].description}</p>
-      <h4>Особенности:</h4>
+
+      <h3>Особенности:</h3>
       <ul>
         {halls[selectedHall].features.map((feature, i) => (
           <li key={i}>{feature}</li>
         ))}
       </ul>
-      <h4>Стоимость:</h4>
+      <h3>Стоимость:</h3>
       <div className="price-list">
         <div>
           🌅 День (09:00-18:00): {halls[selectedHall].price.day} сум/час
@@ -613,7 +613,16 @@ reels: [
           🌃 Ночь (24:00-06:00): {halls[selectedHall].price.night} сум/час
         </div>
       </div>
-      <button className="book-button">{t.modals.rental.book}</button>
+<a
+  className="book-button"
+  style={{ display: 'inline-block', marginTop: '16px' }}
+  href={`https://t.me/vcompany21?text=Хочу заказать зал: ${encodeURIComponent(halls[selectedHall].name)}. Можно подробнее?`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Заказать
+</a>
+
     </div>
   </div>
 )}
@@ -635,9 +644,14 @@ reels: [
                               <div>Вечер: {pkg.prices.evening} сум</div>
                               <div>Ночь: {pkg.prices.night} сум</div>
                             </div>
-                            <button className="book-button">
-                              {t.modals.packages.book}
-                            </button>
+                          <a
+  className="book-button"
+  href={`https://t.me/vcompany21?text=Хочу заказать пакет: ${encodeURIComponent(pkg.name)}. Можно подробнее?`}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  {t.modals.packages.book}
+</a>
                           </div>
                         </div>
                       ))}
@@ -711,7 +725,15 @@ reels: [
                           <li>// Оборудование: 3 источника света/1 камера</li>
                           <li>// Монтаж: 5 reels</li>
                         </ul>
-                        <button className="book-button">Заказать</button>
+                      <a
+  href="https://t.me/vcompany21?text=Хочу заказать REELS. Можно подробнее?"
+  className="book-button"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Заказать
+</a>
+
                       </div>
                       <div className="service-card">
                         <h3>ПОДКАСТ</h3>
@@ -723,7 +745,15 @@ reels: [
                           <li>// Оборудование: 3 источника света/3 камеры/2 микрофона</li>
                           <li>// Монтаж: Склейка</li>
                         </ul>
-                        <button className="book-button">Заказать</button>
+<a
+  className="book-button"
+  href="https://t.me/vcompany21?text=Хочу заказать ПОДКАСТ. Можно подробнее?"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Заказать
+</a>
+
                       </div>
                       <div className="service-card">
                         <h3>YOUTUBE</h3>
@@ -735,7 +765,15 @@ reels: [
                           <li>// Оборудование: 3 источника света/1 камера</li>
                           <li>// Монтаж: 1 ролик</li>
                         </ul>
-                        <button className="book-button">Заказать</button>
+                   <a
+  className="book-button"
+  href="https://t.me/vcompany21?text=Хочу заказать YOUTUBE. Можно подробнее?"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Заказать
+</a>
+
                       </div>
                     </div>
                   </div>
