@@ -186,7 +186,21 @@ const [currentIndex, setCurrentIndex] = useState(0);
     setSelectedLanguage(lang);
     setShowLanguageSelect(false);
   };
+const handleLeadClick = (e, telegramLink) => {
+  e.preventDefault();
 
+  fetch('https://two1studio-main-2.onrender.com/api/fb/lead', {
+    method: 'POST',
+  })
+    .then(() => {
+      console.log('📤 Facebook Lead sent!');
+      window.open(telegramLink, '_blank', 'noopener noreferrer');
+    })
+    .catch((err) => {
+      console.error('❌ Failed to send Facebook Lead:', err);
+      window.open(telegramLink, '_blank', 'noopener noreferrer');
+    });
+};
   const halls = {
     cast: {
       name: t.modals.rental.halls.cast,
@@ -619,9 +633,20 @@ reels: [
   href={`https://t.me/vcompany21?text=Хочу заказать зал: ${encodeURIComponent(halls[selectedHall].name)}. Можно подробнее?`}
   target="_blank"
   rel="noopener noreferrer"
+  onClick={() => {
+    fetch('https://two1studio-main-2.onrender.com/api/fb/lead', {
+
+      method: 'POST',
+    }).then(() => {
+      console.log('📤 Facebook Lead sent!');
+    }).catch((err) => {
+      console.error('❌ Failed to send Facebook Lead:', err);
+    });
+  }}
 >
   Заказать
 </a>
+
 
     </div>
   </div>
@@ -649,6 +674,16 @@ reels: [
   href={`https://t.me/vcompany21?text=Хочу заказать пакет: ${encodeURIComponent(pkg.name)}. Можно подробнее?`}
   target="_blank"
   rel="noopener noreferrer"
+    onClick={() => {
+    fetch('https://two1studio-main-2.onrender.com/api/fb/lead', {
+
+      method: 'POST',
+    }).then(() => {
+      console.log('📤 Facebook Lead sent!');
+    }).catch((err) => {
+      console.error('❌ Failed to send Facebook Lead:', err);
+    });
+  }}
 >
   {t.modals.packages.book}
 </a>
@@ -730,6 +765,16 @@ reels: [
   className="book-button"
   target="_blank"
   rel="noopener noreferrer"
+    onClick={() => {
+   fetch('https://two1studio-main-2.onrender.com/api/fb/lead', {
+
+      method: 'POST',
+    }).then(() => {
+      console.log('📤 Facebook Lead sent!');
+    }).catch((err) => {
+      console.error('❌ Failed to send Facebook Lead:', err);
+    });
+  }}
 >
   Заказать
 </a>
@@ -750,6 +795,16 @@ reels: [
   href="https://t.me/vcompany21?text=Хочу заказать ПОДКАСТ. Можно подробнее?"
   target="_blank"
   rel="noopener noreferrer"
+    onClick={() => {
+   fetch('https://two1studio-main-2.onrender.com/api/fb/lead', {
+
+      method: 'POST',
+    }).then(() => {
+      console.log('📤 Facebook Lead sent!');
+    }).catch((err) => {
+      console.error('❌ Failed to send Facebook Lead:', err);
+    });
+  }}
 >
   Заказать
 </a>
@@ -770,6 +825,16 @@ reels: [
   href="https://t.me/vcompany21?text=Хочу заказать YOUTUBE. Можно подробнее?"
   target="_blank"
   rel="noopener noreferrer"
+    onClick={() => {
+   fetch('https://two1studio-main-2.onrender.com/api/fb/lead', {
+
+      method: 'POST',
+    }).then(() => {
+      console.log('📤 Facebook Lead sent!');
+    }).catch((err) => {
+      console.error('❌ Failed to send Facebook Lead:', err);
+    });
+  }}
 >
   Заказать
 </a>
