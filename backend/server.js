@@ -9,7 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 // Подключение маршрутов
-const fbRoutes = require('./fb');
+const fbRoutes = require('./routes/fb'); // ✅ путь к нужному маршруту
+
+
 app.use('/api/fb', fbRoutes);
 
 // Запуск сервера
